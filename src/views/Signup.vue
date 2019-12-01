@@ -38,7 +38,8 @@ export default {
         .then(promise => {
           const data = promise.data.data;
           localStorage.setItem('currentUser',JSON.stringify(data));
-          this.$root.currentUser = data
+          this.$root.currentUser = data;
+          this.$router.push('home');
           })
         .catch(() => alert('error'))
     }

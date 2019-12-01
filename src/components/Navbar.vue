@@ -11,27 +11,35 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-link">
+          <li v-if="!$root._data.currentUser" class="nav-link">
             <router-link to="/login">Login</router-link>
           </li>
-          <li class="nav-link">
+          <li v-if="!$root._data.currentUser" class="nav-link">
             <router-link to="/signup">Signup</router-link>
           </li>
-          <!-- <li class="nav-item dropdown">
+          <li v-if="$root._data.currentUser" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Welcome Mohamed!!
+            Welcome {{$root._data.currentUser.user.name}}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Logout</a>
               </nav>
             </div>
-          </li> -->
+          </li>
         </ul>
       </div>
     </nav>
   </div>
 </template>
+<script>
+export default {
+  mounted(){
+    window.console.log(this.$root._data.currentUser)
+  }
+}
+</script>
+
 <style>
   .mydiv{
     background-color: cadetblue;

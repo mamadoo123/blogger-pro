@@ -7,7 +7,13 @@
         <div class="card-body">
           <h3 class="card-title text-center">{{post.title}}</h3>
           <p class="card-text">Some quick example text to build on post title and make up the bulk of the post's content</p>
-          <p style="text-decoration:underline">created by: {{post.user.name}}</p>
+          <!-- <p style="text-decoration:underline">created by: {{post.user.name}}</p> -->
+          <div class="comments my-4">
+            <vue-disqus shortname="blogger-pro" 
+                        :identifier="post.slug" 
+                        :url="url" >
+            </vue-disqus>
+          </div>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
@@ -24,7 +30,8 @@ export default {
 
   data(){
     return{
-      post:{}
+      post:{},
+      url: window.location.href
     }
   },
 

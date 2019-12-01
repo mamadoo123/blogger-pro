@@ -8,7 +8,7 @@
             <input type="text" placeholder="Enetr Email" class="form-control">
           </div>
           <div class="form-group">
-            <input type="text" placeholder="Enetr Password" class="form-control">
+            <input type="password" placeholder="Enetr Password" class="form-control">
           </div>
           <div class="form-group text-center">
             <button class="form-control btn btn-success">Login</button>

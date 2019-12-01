@@ -12,10 +12,11 @@ Vue.use(Router);
 //Creating the project router and adding its routes
 
 const router = new Router({
+  mode:'history',
   routes:[
+    {path:'/', component: HomePage},
     {path:'/login', component: Login},
-    {path:'/signup', component: Signup},
-    {path:'/home', component: HomePage}
+    {path:'/signup', component: Signup}
   ]
 });
 

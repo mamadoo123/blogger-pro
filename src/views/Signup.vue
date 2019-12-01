@@ -24,10 +24,17 @@
 
 <script>
 import Axios from 'axios';
+
 export default {
+  beforeRouteEnter(to, from ,next){
+    const user = localStorage.getItem('currentUser');
+    return user ? next({path:"/"}) : next()
+    
+  },
   data(){
     return{name:'', email:'', password:''}
   },
+  
   methods:{
     registerUser(){
       Axios.post('https://react-blog-api.bahdcasts.com/api/auth/register',{
@@ -35,16 +42,16 @@ export default {
         email: this.email,
         password: this.password
       })
-        .then(promise => {
-          const data = promise.data.data;
-          localStorage.setItem('currentUser',JSON.stringify(data));
-          this.$root.currentUser = data;
-          this.$router.push('home');
-          })
-        .catch( error => {
-          window.console.log(error.response.data);
-          alert('Error:Fill All Required Field');
-          })
+            .then(promise => {
+              const data = promise.data.data;
+              localStorage.setItem('currentUser',JSON.stringify(data));
+              this.$root.currentUser = data;
+              this.$router.push('/');
+            })
+            .catch( error => {
+              window.console.log(error.response.data);
+              alert('Error:Fill All Required Field');
+            })
     }
   }
 }

@@ -2,9 +2,9 @@
   <div class="container">
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
+      <router-link to="/" class="navbar-brand">
         <img src="../assets/logo.png" width="40px" height="40px">
-      </a>
+      </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,7 +23,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Logout</a>
+                <a v-on:click="logoutUser()" class="navbar-brand" href="#">Logout</a>
               </nav>
             </div>
           </li>
@@ -36,6 +36,12 @@
 export default {
   mounted(){
     window.console.log(this.$root.currentUser.user)
+  },
+  methods:{
+    logoutUser(){
+      localStorage.removeItem('currentUser');
+      this.$root.currentUser = {};
+    }
   }
 }
 </script>

@@ -5,6 +5,7 @@ import Login from './views/Login.vue';
 import Signup from './views/Signup.vue';
 import HomePage from './views/HomePage.vue';
 import PostView from './views/PostView.vue';
+import AddPost from './views/AddPost.vue';
 
 //Register the Router functionality to Our Vue project
 
@@ -18,7 +19,8 @@ const router = new Router({
     {path:'/', component: HomePage},
     {path:'/login', component: Login},
     {path:'/signup', component: Signup},
-    {path:'/post/:id', component: PostView}
+    {path:'/posts/create', component:AddPost},
+    {path:'/post/:id', component: PostView},
   ]
 });
 

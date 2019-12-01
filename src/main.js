@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router';
-
 import VueDisqus from 'vue-disqus';
+import Editor from 'vue-editor-js'
+//import wysiwyg from 'vue-wysiwyg';
 
-Vue.use(VueDisqus)
+// import "vue-wysiwyg/dist/vueWysiwyg.css";
+
+Vue.use(VueDisqus);
+Vue.use(Editor);
 
 Vue.config.productionTip = false
 //fetching the user from the local storage

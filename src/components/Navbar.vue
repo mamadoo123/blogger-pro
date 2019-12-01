@@ -17,6 +17,9 @@
           <li v-if="!$root.currentUser.user" class="nav-link">
             <router-link to="/signup">Signup</router-link>
           </li>
+          <li v-if="$root.currentUser.user" class="nav-link">
+            <router-link to="/posts/create">Add Post</router-link>
+          </li>
           <li v-if="$root.currentUser.user" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Welcome {{$root.currentUser.user.name}}

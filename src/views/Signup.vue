@@ -41,7 +41,10 @@ export default {
           this.$root.currentUser = data;
           this.$router.push('home');
           })
-        .catch(() => alert('error'))
+        .catch( error => {
+          window.console.log(error.response.data);
+          alert('Error:Fill All Required Field');
+          })
     }
   }
 }
